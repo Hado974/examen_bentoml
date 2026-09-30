@@ -10,11 +10,6 @@ def train_and_save_model(
     processed_dir: str = "data/processed",
     model_name: str = "admission_lr",
 ) -> None:
-    """Entraine un modele de regression lineaire sur les donnees d'admission,
-
-    evalue ses performances (R2, MAE, RMSE) sur le jeu de test
-    et l'enregistre dans le Model Store de BentoML.
-    """
     print("Chargement des donnees traitees...")
     X_train = pd.read_csv(os.path.join(processed_dir, "X_train.csv"))
     y_train = pd.read_csv(os.path.join(processed_dir, "y_train.csv")).values.ravel()

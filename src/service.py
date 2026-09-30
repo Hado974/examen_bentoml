@@ -27,11 +27,6 @@ FEATURE_NAMES = [
     name="admission_prediction_service",
 )
 class AdmissionPredictionService:
-    """Service BentoML exposant les endpoints securises /login et /predict
-
-    pour la prediction de chance d'admission universitaire.
-    """
-
     def __init__(self):
         # Chargement du modele entraine depuis le Model Store BentoML
         self.model = bentoml.sklearn.load_model("admission_lr:latest")

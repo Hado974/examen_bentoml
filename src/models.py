@@ -2,8 +2,6 @@ from pydantic import BaseModel, ConfigDict, Field
 
 
 class UserCredentials(BaseModel):
-    """Schema de validation pour les identifiants utilisateur (route /login)."""
-
     username: str
     password: str
 

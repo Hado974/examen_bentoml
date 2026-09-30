@@ -9,11 +9,6 @@ def prepare_data(
     test_size: float = 0.2,
     random_state: int = 42,
 ) -> None:
-    """Charge le jeu de donnees brut, nettoie les colonnes,
-
-    separe les features de la cible, divise en train/test
-    et sauvegarde les jeux de donnees dans data/processed.
-    """
     print(f"Chargement des donnees depuis {input_path}...")
     df = pd.read_csv(input_path)
 

@@ -20,7 +20,6 @@ USERS: Dict[str, str] = {
 
 
 def create_jwt_token(user_id: str, expires_minutes: int = 60) -> str:
-    """Genere un token JWT signe avec une duree d'expiration donnee."""
     expiration = datetime.now(timezone.utc) + timedelta(minutes=expires_minutes)
     payload = {
         "sub": user_id,
@@ -31,10 +30,6 @@ def create_jwt_token(user_id: str, expires_minutes: int = 60) -> str:
 
 
 def verify_jwt_token(token: str) -> Dict[str, Any]:
-    """Verifie et decode un token JWT.
-
-    Leve jwt.ExpiredSignatureError si expire ou jwt.InvalidTokenError si invalide.
-    """
     return jwt.decode(token, JWT_SECRET_KEY, algorithms=[JWT_ALGORITHM])
 
 
@@ -87,11 +82,7 @@ class PayloadNormalizerMiddleware:
 
 
 class JWTAuthMiddleware(BaseHTTPMiddleware):
-    """Middleware Starlette verifiant la presence et la validite du jeton JWT
-
-    sur la route /predict.
-    """
-
+    # Middleware Starlette verifiant la presence et la validite du jeton JWT sur la route /predict.
     async def dispatch(self, request: Request, call_next):
         path = request.url.path.rstrip("/")
         if path.endswith("/predict"):
