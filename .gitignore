@@ -1,4 +1,11 @@
 .DS_Store
 .DS_Store?
 /venv
+/.venv
 /clean_data.csv
+__pycache__/
+*.pyc
+.pytest_cache/
+*.tar
+*.zip
+Déploiement avec BentoML FR/
